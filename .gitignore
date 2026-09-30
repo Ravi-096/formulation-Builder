@@ -1,0 +1,69 @@
+# ==========================================
+# Environment & Secrets (NEVER COMMIT)
+# ==========================================
+.env
+.env.*
+*.env
+!.env.example
+
+# ==========================================
+# Python & FastAPI
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ==========================================
+# Node & Frontend (Vite / React)
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+dist/
+dist-ssr/
+build/
+*.local
+
+# ==========================================
+# IDE & Editors
+# ==========================================
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+.project
+.settings/
+
+# ==========================================
+# Operating System
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==========================================
+# Serverless & Cloud Deployments
+# ==========================================
+.vercel
+.netlify
