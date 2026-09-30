@@ -47,7 +47,7 @@ export const Navbar = ({ onOpenMobileMenu }) => {
   const sampleNotifications = [
     { id: 1, title: 'API Key regenerated', time: '10m ago', read: false },
     { id: 2, title: 'Database sync completed successfully', time: '1h ago', read: false },
-    { id: 3, title: 'Welcome to Enterprise Portal', time: '1d ago', read: true },
+    { id: 3, title: 'Welcome to PharmaNexus AI', time: '1d ago', read: true },
   ];
 
   return (
@@ -64,7 +64,7 @@ export const Navbar = ({ onOpenMobileMenu }) => {
           </button>
 
           <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-            <span>Portal</span>
+            <span>PharmaNexus AI</span>
             <span>/</span>
             <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Dashboard</span>
           </div>

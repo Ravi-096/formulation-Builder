@@ -10,7 +10,6 @@ import {
   Lock,
   Mail,
   User,
-  Layers,
   ArrowRight,
   AlertCircle,
 } from 'lucide-react';
@@ -145,9 +144,11 @@ export const RegisterPage = () => {
       <div className="w-full max-w-md relative z-10">
         {/* Brand */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-500/20 mb-4">
-            <Layers className="w-6 h-6" />
-          </div>
+          <img src="/pharmanexus-logo.svg" alt="" className="w-14 h-14 object-contain mx-auto mb-2" />
+
+          <p className="text-sm font-semibold text-brand-700 mb-2">
+            PharmaNexus AI
+          </p>
 
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
             Create your account

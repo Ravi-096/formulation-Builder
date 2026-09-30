@@ -5,7 +5,6 @@ import {
   FlaskConical,
   Settings,
   Sparkles,
-  Layers,
   X,
   ShieldCheck,
 } from 'lucide-react';
@@ -45,15 +44,13 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
       {/* Brand Header */}
       <div className="flex items-center justify-between h-16 px-6 border-b border-zinc-200/80 dark:border-zinc-800/80">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-brand-600 dark:bg-brand-500 flex items-center justify-center text-white dark:text-zinc-950 shadow-sm shadow-brand-500/30">
-            <Layers className="w-5 h-5" />
-          </div>
+          <img src="/pharmanexus-logo.svg" alt="" className="w-9 h-9 object-contain shrink-0" />
           <div className="flex flex-col">
             <span className="text-sm font-bold tracking-tight text-zinc-900 dark:text-white">
-              NEXUS CORE
+              PharmaNexus AI
             </span>
             <span className="text-[10px] uppercase font-semibold text-brand-600 dark:text-brand-400 tracking-wider">
-              ENTERPRISE SPA
+              FORMULATION INTELLIGENCE
             </span>
           </div>
         </div>
