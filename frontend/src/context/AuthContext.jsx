@@ -167,6 +167,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(res.user));
         return res.user;
       }
+      throw new Error('The server did not return the updated profile. Please try again.');
     } catch (err) {
       // Re-throw so caller can display specific validation error
       throw err;

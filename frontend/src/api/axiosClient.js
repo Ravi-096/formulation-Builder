@@ -3,7 +3,7 @@ import { mockApiHandler } from './mockApi';
 
 // Get base URL from environment or default to /api
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
-const USE_MOCK = import.meta.env.VITE_USE_MOCK_FALLBACK !== 'false';
+const USE_MOCK = import.meta.env.DEV && import.meta.env.VITE_USE_MOCK_FALLBACK !== 'false';
 
 export const TOKEN_STORAGE_KEY = 'ks_jwt_token';
 export const USER_STORAGE_KEY = 'ks_user_data';
