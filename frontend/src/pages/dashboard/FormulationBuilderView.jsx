@@ -6,6 +6,7 @@ import Badge from '../../components/ui/Badge';
 import Spinner from '../../components/ui/Spinner';
 import StepApiSelection, { POPULAR_PRESETS } from '../../components/formulation/StepApiSelection';
 import StepExcipients from '../../components/formulation/StepExcipients';
+import StepQualityControl from '../../components/formulation/StepQualityControl';
 import StepAnimalSubject, { DELIVERY_ROUTES } from '../../components/formulation/StepAnimalSubject';
 import PkSimulationDashboard from '../../components/formulation/PkSimulationDashboard';
 import { calculatePkParameters, simulatePkCurve } from '../../utils/pkSimulationEngine';
@@ -24,6 +25,7 @@ import {
   Zap,
   Scale,
   RefreshCw,
+  FlaskConical,
 } from 'lucide-react';
 
 export const STEPS = [
@@ -41,12 +43,18 @@ export const STEPS = [
   },
   {
     id: 3,
+    title: 'QC Tests',
+    subtitle: 'Dissolution, Texture, Solubility',
+    icon: FlaskConical,
+  },
+  {
+    id: 4,
     title: 'Route & Animal Subject',
     subtitle: 'Oral/IV & Preclinical Species',
     icon: Scale,
   },
   {
-    id: 4,
+    id: 5,
     title: 'Virtual PK Simulation',
     subtitle: 'ODE Curves & Safety Flags',
     icon: Activity,
@@ -406,7 +414,7 @@ export const FormulationBuilderView = () => {
           Step Progress Stepper Navigation Bar
       ======================================================================= */}
       <div className="p-3 bg-white dark:bg-zinc-900/90 rounded-2xl border border-zinc-200 dark:border-zinc-800 shadow-xs">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
           {STEPS.map((step) => {
             const Icon = step.icon;
             const isActive = activeStep === step.id;
@@ -495,6 +503,15 @@ export const FormulationBuilderView = () => {
         )}
 
         {activeStep === 3 && (
+          <StepQualityControl
+            apiName={apiName}
+            deliveryVehicle={deliveryVehicle}
+            targetPh={targetPh}
+            validationResult={validationResult}
+          />
+        )}
+
+        {activeStep === 4 && (
           <StepAnimalSubject
             deliveryVehicle={deliveryVehicle}
             setDeliveryVehicle={setDeliveryVehicle}
@@ -505,7 +522,7 @@ export const FormulationBuilderView = () => {
           />
         )}
 
-        {activeStep === 4 && (
+        {activeStep === 5 && (
           <PkSimulationDashboard
             simulationResult={simulationResult}
             apiName={apiName}
@@ -535,11 +552,11 @@ export const FormulationBuilderView = () => {
           </Button>
 
           <div className="flex items-center gap-2">
-            {activeStep < 4 ? (
+            {activeStep < 5 ? (
               <Button
                 variant="primary"
                 size="sm"
-                onClick={() => setActiveStep((prev) => Math.min(4, prev + 1))}
+                onClick={() => setActiveStep((prev) => Math.min(5, prev + 1))}
                 rightIcon={ArrowRight}
                 className="text-xs"
               >
@@ -547,6 +564,8 @@ export const FormulationBuilderView = () => {
                 {activeStep === 1
                   ? 'Excipients & Solvents'
                   : activeStep === 2
+                  ? 'QC Tests'
+                  : activeStep === 3
                   ? 'Route & Animal Subject'
                   : 'Run PK Simulation'}
               </Button>
