@@ -15,8 +15,10 @@ import {
   Waves,
   Zap,
   Activity,
+  BookOpen,
 } from 'lucide-react';
 import Badge from '../ui/Badge';
+import IbuprofenComparativeStudyPanel from './IbuprofenComparativeStudyPanel';
 
 // ============================================================================
 // Dissolution Profile Data (USP Apparatus I & II)
@@ -591,6 +593,24 @@ export const StepQualityControl = ({
           fasted gastric, intestinal, and colonic conditions. BCS defines low solubility as the highest
           therapeutic dose not fully dissolved in 250 mL at all tested pH values.
         </InfoAlert>
+      </QCAccordion>
+
+      {/* PANEL 7: Empirical Literature Benchmark (Alsaifi et al., 2018) */}
+      <QCAccordion
+        id="empirical_study"
+        open={openPanel === 'empirical_study'}
+        onToggle={() => toggle('empirical_study')}
+        icon={<BookOpen className="w-4 h-4" />}
+        iconColor="text-emerald-600 dark:text-emerald-400 bg-emerald-500/15"
+        title="Empirical QC Benchmark — Ibuprofen 400 mg Tablets"
+        subtitle="5-Brand Comparative In Vitro Quality Control Study (Alsaifi et al., 2018)"
+        badge={
+          <Badge variant="success" size="sm">
+            Empirical Benchmark
+          </Badge>
+        }
+      >
+        <IbuprofenComparativeStudyPanel />
       </QCAccordion>
     </div>
   );
